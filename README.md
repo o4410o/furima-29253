@@ -33,17 +33,17 @@ Things you may want to cover:
 
 ## items テーブル
 
-| Column        | Type       | Options                        |
-| ------------- | ---------- | ------------------------------ |
-| item_name     | string     | null: false                    |
-| price         | integer    | null: false                    |
-| detail        | text       | null: false                    |
-| user          | references | null: false, foreign_key: true |
-| category      | integer    | null: false                    |
-| status        | integer    | null: false                    |
-| delivery_fee  | integer    | null: false                    |
-| shipping_area | integer    | null: false                    |
-| shipping_date | integer    | null: false                    |
+| Column           | Type       | Options                        |
+| ---------------- | ---------- | ------------------------------ |
+| item_name        | string     | null: false                    |
+| price            | integer    | null: false                    |
+| detail           | text       | null: false                    |
+| user             | references | null: false, foreign_key: true |
+| category_id      | integer    | null: false                    |
+| status_id        | integer    | null: false                    |
+| delivery_fee_id  | integer    | null: false                    |
+| shipping_area_id | integer    | null: false                    |
+| shipping_date_id | integer    | null: false                    |
 
 ### Association
 - belongs_to :user
@@ -51,10 +51,10 @@ Things you may want to cover:
 
 ## buyers テーブル
 
-| Column | Type       | Options                    |
-| ------ | ---------- | -------------------------- |
-| item   | references | null: false, foreign: true |
-| user   | references | null: false, foreign: true |
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| item   | references | null: false, foreign_key: true |
+| user   | references | null: false, foreign_key: true |
 
 ### Association
 - has_one :delivery
