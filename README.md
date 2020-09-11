@@ -33,17 +33,17 @@ Things you may want to cover:
 
 ## items テーブル
 
-| Column        | Type        | Options     |
-| ------------- | ------------| ----------- |
-| user          | references  | null: false |
-| price         | integer     | null: false |
-| detail        | text        | null: false |
-| exhibitor     | integer     | null: false |
-| category      | integer     | null: false |
-| status        | integer     | null: false |
-| delivery_fee  | integer     | null: false |
-| shipping_area | integer     | null: false |
-| shipping_date | integer     | null: false |
+| Column        | Type    | Options     |
+| ------------- | ------- | ----------- |
+| item_name     | string  | null: false |
+| price         | integer | null: false |
+| detail        | text    | null: false |
+| exhibitor     | integer | null: false |
+| category      | integer | null: false |
+| status        | integer | null: false |
+| delivery_fee  | integer | null: false |
+| shipping_area | integer | null: false |
+| shipping_date | integer | null: false |
 
 ### Association
 - belongs_to :user
@@ -57,9 +57,9 @@ Things you may want to cover:
 | user   | references | null: false, foreign: true |
 
 ### Association
-- has_one :deliveries
+- has_one :delivery
 - belongs_to :user
-- belongs_to :items
+- belongs_to :item
 
 
 ## deliveries テーブル
@@ -74,7 +74,7 @@ Things you may want to cover:
 | phone_number | string  | null: false |
 
 ### Association
-- belongs_to :buyers
+- belongs_to :buyer
 
 * Database initialization
 
