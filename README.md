@@ -33,17 +33,17 @@ Things you may want to cover:
 
 ## items テーブル
 
-| Column        | Type    | Options     |
-| ------------- | ------- | ----------- |
-| item_name     | string  | null: false |
-| price         | integer | null: false |
-| detail        | text    | null: false |
-| exhibitor     | integer | null: false |
-| category      | integer | null: false |
-| status        | integer | null: false |
-| delivery_fee  | integer | null: false |
-| shipping_area | integer | null: false |
-| shipping_date | integer | null: false |
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| item_name     | string     | null: false                    |
+| price         | integer    | null: false                    |
+| detail        | text       | null: false                    |
+| user          | references | null: false, foreign_key: true |
+| category      | integer    | null: false                    |
+| status        | integer    | null: false                    |
+| delivery_fee  | integer    | null: false                    |
+| shipping_area | integer    | null: false                    |
+| shipping_date | integer    | null: false                    |
 
 ### Association
 - belongs_to :user
@@ -64,14 +64,15 @@ Things you may want to cover:
 
 ## deliveries テーブル
 
-| Column       | Type    | Options     |
-| ------------ | ------- | ----------- |
-| post_code    | string  | null: false |
-| prefecture   | integer | null: false |
-| city         | string  | null: false |
-| address      | string  | null: false |
-| building     | string  |             |
-| phone_number | string  | null: false |
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| post_code    | string     | null: false                    |
+| prefecture   | integer    | null: false                    |
+| city         | string     | null: false                    |
+| address      | string     | null: false                    |
+| building     | string     |                                |
+| phone_number | string     | null: false                    |
+| item         | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :buyer
