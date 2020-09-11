@@ -20,37 +20,34 @@ Things you may want to cover:
 | --------------------- | ------ | ----------- |
 | nickname              | string | null: false |
 | email                 | string | null: false |
-| password              | string | null: false |
-| kanji family_name     | string | null: false |
-| kanji first_name      | string | null: false |
-| kana family_name      | string | null: false |
-| kana first_name       | string | null: false |
+| encrypted_password    | string | null: false |
+| kanji_family_name     | string | null: false |
+| kanji_first_name      | string | null: false |
+| kana_family_name      | string | null: false |
+| kana_first_name       | string | null: false |
 | birthday              | date   | null: false |
 
 ### Association
 - has_many :buyers
 - has_many :items
-- has_many :deliveries
 
 ## items テーブル
 
-| Column        | Type    | Options     |
-| ------------- | ------- | ----------- |
-| name          | string  | null: false |
-| image         | string  | null: false |
-| price         | integer | null: false |
-| detail        | integer | null: false |
-| exhibitor     | integer | null: false |
-| category      | integer | null: false |
-| status        | integer | null: false |
-| delivery_fee  | integer | null: false |
-| shipping_area | integer | null: false |
-| shipping_date | integer | null: false |
+| Column        | Type        | Options     |
+| ------------- | ------------| ----------- |
+| user          | references  | null: false |
+| price         | integer     | null: false |
+| detail        | text        | null: false |
+| exhibitor     | integer     | null: false |
+| category      | integer     | null: false |
+| status        | integer     | null: false |
+| delivery_fee  | integer     | null: false |
+| shipping_area | integer     | null: false |
+| shipping_date | integer     | null: false |
 
 ### Association
 - belongs_to :user
-- has_many :deliveries
-- belongs_to :buyer
+- has_one :buyer
 
 ## buyers テーブル
 
@@ -59,11 +56,10 @@ Things you may want to cover:
 | item   | references | null: false, foreign: true |
 | user   | references | null: false, foreign: true |
 
-
 ### Association
-- has_many :deliveries
+- has_one :deliveries
 - belongs_to :user
-- has_many :items
+- belongs_to :items
 
 
 ## deliveries テーブル
@@ -78,13 +74,7 @@ Things you may want to cover:
 | phone_number | string  | null: false |
 
 ### Association
-- belongs_to :buyer
-- belongs_to :user
-
-
-
-- belongs_to :buyer
-- belongs_to :delivery
+- belongs_to :buyers
 
 * Database initialization
 
