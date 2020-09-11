@@ -72,7 +72,7 @@ Things you may want to cover:
 | address      | string     | null: false                    |
 | building     | string     |                                |
 | phone_number | string     | null: false                    |
-| item         | references | null: false, foreign_key: true |
+| buyer        | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :buyer
