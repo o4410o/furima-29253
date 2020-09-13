@@ -56,5 +56,3 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 group :production do
   gem 'rails_12factor'
 end
-
-gem 'devise'
