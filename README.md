@@ -62,6 +62,7 @@ Things you may want to cover:
 - belongs_to :item
 
 
+
 ## deliveries テーブル
 
 | Column       | Type       | Options                        |
@@ -76,6 +77,7 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :buyer
+
 
 * Database initialization
 
