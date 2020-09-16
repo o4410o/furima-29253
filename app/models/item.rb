@@ -7,6 +7,5 @@ class Item < ApplicationRecord
   belongs_to_active_hash :shipping_date
 
   validates :item_name, :price, :detail, :genre, :status, :delivery, :shipping_area, :shipping_date, presence: true
-  validates :genre_id, :status_id, :delivery_id, :shipping_area_id, :shipping_date_id, numericality: { other_than: 1 } 
-
+  validates :genre_id, :status_id, :delivery_id, :shipping_area_id, :shipping_date_id, numericality: { other_than: 1 }
 end
