@@ -1,15 +1,12 @@
 class Item < ApplicationRecord
- 
- 
-  with_options presence: true do
-    validates :item_name
-    validates :price
-    validates :detail
-    validates :category_id
-    validates :status_id
-    validates :delivery_fee_id
-    validates :shipping_area_id
-    validates :shipping_date_id
-    
-  end
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :genre
+  belongs_to_active_hash :status
+  belongs_to_active_hash :delivery
+  belongs_to_active_hash :shipping_area
+  belongs_to_active_hash :shipping_date
+
+  validates :item_name, :price, :detail, :genre, :status, :delivery, :shipping_area, :shipping_date, presence: true
+  validates :genre_id, :status_id, :delivery_id, :shipping_area_id, :shipping_date_id, numericality: { other_than: 1 } 
+
 end

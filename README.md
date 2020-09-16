@@ -39,9 +39,9 @@ Things you may want to cover:
 | price            | integer    | null: false                    |
 | detail           | text       | null: false                    |
 | user             | references | null: false, foreign_key: true |
-| category_id      | integer    | null: false                    |
+| genre_id         | integer    | null: false                    |
 | status_id        | integer    | null: false                    |
-| delivery_fee_id  | integer    | null: false                    |
+| delivery_id      | integer    | null: false                    |
 | shipping_area_id | integer    | null: false                    |
 | shipping_date_id | integer    | null: false                    |
 
