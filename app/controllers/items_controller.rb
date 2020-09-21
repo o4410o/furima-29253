@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
 
   def index
-    @items = Item.all.order("created_at DESC")
+    @items = Item.all.order('created_at DESC')
   end
 
   def new
@@ -16,6 +16,15 @@ class ItemsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @item = Item.find(params[:id])
+    # #@genre = Genre.find(params[:id])
+    # @genre = Genre.find_by(name: params[:name])
+    # @genre = Item.find_by(params[:genre_id])
+    # @genre = Genre.find(params[:id])
+    # @genre = Item.find_by(genre_id: params[:id])
   end
 
   private
