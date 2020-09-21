@@ -20,11 +20,6 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    # #@genre = Genre.find(params[:id])
-    # @genre = Genre.find_by(name: params[:name])
-    # @genre = Item.find_by(params[:genre_id])
-    # @genre = Genre.find(params[:id])
-    # @genre = Item.find_by(genre_id: params[:id])
   end
 
   private
