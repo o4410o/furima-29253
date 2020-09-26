@@ -30,12 +30,11 @@ class OrdersController < ApplicationController
   def order_params
     params.permit(:token)
   end
-
   def pay_item
-    Payjp.api_key = "sk_test_9dc24135d946d3c3b23cd76d"  # PAY.JPテスト秘密鍵
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]  # PAY.JPテスト秘密鍵
     Payjp::Charge.create(
       amount: @item.price,
-      card: order_params[:token],    
+      card: order_params[:token],   
       currency:'jpy'                 
     )
   end
