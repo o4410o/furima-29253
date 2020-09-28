@@ -24,7 +24,9 @@ RSpec.describe Order, type: :model do
         expect(@order.errors.full_messages).to include("Post code can't be blank")
       end
       it 'post_codeのハイフンがない時' do
-        
+        @order.post_code = '1111111'
+        @order.valid?
+        expect(@order.errors.full_messages).to include('Post code is invalid')
       end
       it 'prefecture_idが１の時' do
         @order.prefecture_id = 1
@@ -46,7 +48,11 @@ RSpec.describe Order, type: :model do
         @order.valid?
         expect(@order.errors.full_messages).to include("Phone number can't be blank")
       end
+      it 'phone_numberが10桁より少ない時' do
+        @order.phone_number = '111111111'
+        @order.valid?
+        expect(@order.errors.full_messages).to include('Phone number is invalid')
+      end
     end
-  
   end
 end
