@@ -48,6 +48,11 @@ RSpec.describe Order, type: :model do
         @order.valid?
         expect(@order.errors.full_messages).to include("Phone number can't be blank")
       end
+      it 'phone_numberが11桁より多い時' do
+        @order.phone_number = '111222333444'
+        @order.valid?
+        binding.pry
+      end
     end
   end
 end
