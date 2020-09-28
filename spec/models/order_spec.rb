@@ -48,11 +48,6 @@ RSpec.describe Order, type: :model do
         @order.valid?
         expect(@order.errors.full_messages).to include("Phone number can't be blank")
       end
-      it 'phone_numberが10桁より少ない時' do
-        @order.phone_number = '111111111'
-        @order.valid?
-        expect(@order.errors.full_messages).to include('Phone number is invalid')
-      end
     end
   end
 end
