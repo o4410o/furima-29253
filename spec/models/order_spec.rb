@@ -23,6 +23,9 @@ RSpec.describe Order, type: :model do
         @order.valid?
         expect(@order.errors.full_messages).to include("Post code can't be blank")
       end
+      it 'post_codeのハイフンがない時' do
+        
+      end
       it 'prefecture_idが１の時' do
         @order.prefecture_id = 1
         @order.valid?
