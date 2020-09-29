@@ -28,6 +28,16 @@ RSpec.describe Order, type: :model do
         @order.valid?
         expect(@order.errors.full_messages).to include('Post code is invalid')
       end
+      it 'post_codeのハイフン前が3桁より多い時' do
+        @order.post_code = '1111-1111'
+        @order.valid?
+        expect(@order.errors.full_messages).to include('Post code is invalid')
+      end
+      it 'post_codeのハイフン後が4桁より多い時' do
+        @order.post_code = '111-11111'
+        @order.valid?
+        expect(@order.errors.full_messages).to include('Post code is invalid')
+      end
       it 'prefecture_idが１の時' do
         @order.prefecture_id = 1
         @order.valid?
@@ -51,7 +61,7 @@ RSpec.describe Order, type: :model do
       it 'phone_numberが11桁より多い時' do
         @order.phone_number = '111222333444'
         @order.valid?
-        binding.pry
+        expect(@order.errors.full_messages).to include("Phone number is invalid")
       end
     end
   end
